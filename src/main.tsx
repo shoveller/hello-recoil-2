@@ -13,6 +13,7 @@ import RecoilBasic from "./RecoilBasic.tsx";
 import { RecoilRoot } from "recoil";
 import RecoilFamily from "./RecoilFamily.tsx";
 import RecoilFamily2 from "./RecoilFamily2.tsx";
+import JotaiBasic from "./JotaiBasic.tsx";
 
 const RootLayout = () => {
   return (
@@ -60,6 +61,20 @@ const RootLayout = () => {
             리코일 + 리액트 라우터
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/jotai-basic"
+            style={({ isActive }) => {
+              if (isActive) {
+                return { color: "red" };
+              }
+
+              return {};
+            }}
+          >
+            jotai 기본
+          </NavLink>
+        </li>
       </ul>
       <Outlet />
     </>
@@ -72,6 +87,7 @@ const router = createBrowserRouter(
       <Route path="recoil-basic" element={<RecoilBasic />} />
       <Route path="recoil-family" element={<RecoilFamily />} />
       <Route path="recoil-family2" element={<RecoilFamily2 />} />
+      <Route path="jotai-basic" element={<JotaiBasic />} />
     </Route>
   )
 );
