@@ -3,6 +3,7 @@ import { pokeList } from "./api";
 import { Suspense } from "react";
 
 const offsetAtom = atom(0);
+offsetAtom.debugLabel = "offsetAtom";
 
 const pokemonAtom = atom(async (get) => {
   const offset = get(offsetAtom);
@@ -10,6 +11,7 @@ const pokemonAtom = atom(async (get) => {
 
   return list;
 });
+pokemonAtom.debugLabel = "pokemonAtom";
 
 const PokemonList = () => {
   const list = useAtomValue(pokemonAtom);
