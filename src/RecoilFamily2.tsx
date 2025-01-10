@@ -29,7 +29,7 @@ const PokemonList = () => {
   );
 };
 
-const RecoilFamily = () => {
+const RecoilFamily2 = () => {
   const [offset, setOffset] = useRecoilState(offsetAtom);
 
   return (
@@ -44,4 +44,4 @@ const RecoilFamily = () => {
   );
 };
 
-export default RecoilFamily;
+export default RecoilFamily2;

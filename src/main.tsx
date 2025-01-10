@@ -12,6 +12,7 @@ import {
 import RecoilBasic from "./RecoilBasic.tsx";
 import { RecoilRoot } from "recoil";
 import RecoilFamily from "./RecoilFamily.tsx";
+import RecoilFamily2 from "./RecoilFamily2.tsx";
 
 const RootLayout = () => {
   return (
@@ -45,6 +46,20 @@ const RootLayout = () => {
             리코일 패밀리
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/recoil-family2"
+            style={({ isActive }) => {
+              if (isActive) {
+                return { color: "red" };
+              }
+
+              return {};
+            }}
+          >
+            리코일 + 리액트 라우터
+          </NavLink>
+        </li>
       </ul>
       <Outlet />
     </>
@@ -56,6 +71,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />}>
       <Route path="recoil-basic" element={<RecoilBasic />} />
       <Route path="recoil-family" element={<RecoilFamily />} />
+      <Route path="recoil-family2" element={<RecoilFamily2 />} />
     </Route>
   )
 );
