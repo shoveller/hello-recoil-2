@@ -4,16 +4,6 @@ import { Suspense } from "react";
 
 const offsetAtom = atom(0);
 
-// const pokemonSelector = selector({
-//   key: "pokemonSelector",
-//   get: async ({ get }) => {
-//     const offset = get(offsetAtom);
-//     const list = (await pokeList(offset)).results;
-
-//     return list;
-//   },
-// });
-
 const pokemonAtom = atom(async (get) => {
   const offset = get(offsetAtom);
   const list = (await pokeList(offset)).results;

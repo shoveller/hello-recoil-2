@@ -14,6 +14,8 @@ import { RecoilRoot } from "recoil";
 import RecoilFamily from "./RecoilFamily.tsx";
 import RecoilFamily2 from "./RecoilFamily2.tsx";
 import JotaiBasic from "./JotaiBasic.tsx";
+import "jotai-devtools/styles.css";
+import { DevTools } from "jotai-devtools";
 
 const RootLayout = () => {
   return (
@@ -96,6 +98,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <RecoilRoot>
       <RouterProvider router={router} />
+      <DevTools />
     </RecoilRoot>
   </StrictMode>
 );
