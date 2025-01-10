@@ -1,11 +1,7 @@
-import { atom, atomFamily, useRecoilState, useRecoilValue } from "recoil";
+import { atomFamily, useRecoilValue } from "recoil";
 import { pokeList } from "./api";
 import { Suspense } from "react";
-
-const offsetAtom = atom({
-  key: "offsetAtom",
-  default: 0,
-});
+import { useSearchParams } from "react-router";
 
 const pokemonFamily = atomFamily({
   key: "pokemonFamily",
@@ -17,7 +13,8 @@ const pokemonFamily = atomFamily({
 });
 
 const PokemonList = () => {
-  const offset = useRecoilValue(offsetAtom);
+  const [params] = useSearchParams();
+  const offset = Number(params.get("offset") || "0");
   const list = useRecoilValue(pokemonFamily(offset));
 
   return (
@@ -30,7 +27,11 @@ const PokemonList = () => {
 };
 
 const RecoilFamily2 = () => {
-  const [offset, setOffset] = useRecoilState(offsetAtom);
+  const [params, setParams] = useSearchParams();
+  const offset = Number(params.get("offset") || "0");
+  const setOffset = (nextOffset: number) => {
+    setParams({ offset: String(nextOffset) });
+  };
 
   return (
     <>
